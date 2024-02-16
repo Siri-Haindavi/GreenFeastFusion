@@ -1,0 +1,103 @@
+ /* Who We Are Section */
+ .who-we-are-title {
+    font-size: 2rem;
+    color: #004d40;
+    margin-bottom: 1rem;
+    padding-top: 20px;
+  }
+  
+  .who-we-are-desc {
+    margin-bottom: 2rem;
+    color: #333;
+    font-size: 1rem;
+  }
+  
+  
+  /* Visit Us Section */
+  .visit-us-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .visit-us-address {
+    margin-bottom: 1rem;
+  }
+  
+  .google-maps-link img {
+    width: 100%;
+    border-radius: 8px;
+  }
+  
+  /* Contact Form Section */
+  .contact-form-title {
+    font-size: 2rem;
+    color: #004d40;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .contact-form {
+    background-color: #f9f9f9;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .contact-form .btn-primary {
+    background-color: #004d40;
+    border-color: #004d40;
+  }
+  
+  .contact-form .btn-primary:hover {
+    background-color: #003d34;
+    border-color: #003d34;
+  }
+  
+  /* General Styles */
+  .text-center {
+    text-align: center;
+  }
+  
+  .mb-4 {
+    margin-bottom: 1.5rem;
+  }
+
+  .chef-profiles-container {
+    background-color: #f8f9fa; 
+    padding: 20px; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    margin: 20px 0; 
+  }
+  
+
+  .chef-photos {
+    display: flex;
+    justify-content: center;
+    gap: 60px; 
+    flex-wrap: wrap; 
+  }
+  
+  .chef-box {
+    width: 420px; 
+    text-align: center;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    border-radius: 8px; 
+    background-color: #fff;
+    margin-bottom: 20px; 
+  }
+  
+  .chef-photo {
+    width: 100%; 
+    height: auto;
+    border-radius: 50%; 
+    object-fit: cover; 
+  }
+  
+  .chef-description {
+    margin-top: 10px; 
+    color: #333; 
+    font-size: 1rem; 
+  }
+  

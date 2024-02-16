@@ -1,0 +1,89 @@
+<!-- register.component.html -->
+<app-auth-layout class="w-100">
+
+    <div class="container py-5 px-5 h-100" right-content>
+      <div class="card bg-white shadow-2-strong" style="border-radius: 1rem;">
+        <div class="card-body p-5 text-center">
+          <h3 class="mb-5">Create an Account with us</h3>
+  
+          <small
+            *ngIf="error != '' || responseMessage != ''"
+            class="block"
+          >
+            <div *ngIf="error != ''" class="text-danger">{{error}}</div>
+            <div *ngIf="responseMessage != ''" class="text-success">{{responseMessage}}</div>
+          </small>
+  
+  
+          <form [formGroup]="registerForm" (ngSubmit)="submitDetails()">
+  
+            <div class="form-outline mb-4">
+              <input formControlName="fullName" type="text" id="registerName" class="form-control form-control-lg"
+                     placeholder="Full Name" required/>
+              <small
+                *ngIf="fullName.invalid && (fullName.dirty || fullName.touched)"
+                class="block text-danger"
+              >
+                <div *ngIf="fullName.errors?.['required']">Name is required.</div>
+                <div *ngIf="fullName.errors?.['pattern']">Enter a valid Name</div>
+              </small>
+            </div>
+  
+            <div class="form-outline mb-4">
+              <input formControlName="email" type="email" id="registerEmail" class="form-control form-control-lg"
+                     placeholder="Email" required/>
+              <small
+                *ngIf="email.invalid && (email.dirty || email.touched)"
+                class="block text-danger"
+              >
+                <div *ngIf="email.errors?.['required']">Email is required.</div>
+                <div *ngIf="email.errors?.['email']">Email should be valid</div>
+              </small>
+            </div>
+  
+            <div class="form-outline mb-4">
+              <input formControlName="password" type="password" id="registerPassword"
+                     class="form-control form-control-lg" placeholder="Choose a password" required/>
+              <small
+                *ngIf="password.invalid && (password.dirty || password.touched)"
+                class="block text-danger"
+              >
+                <div *ngIf="password.errors?.['required']">Password is required.</div>
+              </small>
+            </div>
+  
+            <div class="form-outline mb-4">
+              <input formControlName="confirmPassword" type="password" id="confirmPassword"
+                     class="form-control form-control-lg" placeholder="Confirm password" required/>
+              <small
+                *ngIf="
+            confirmPassword.invalid &&
+            (confirmPassword.dirty || confirmPassword.touched)
+          "
+                class="block text-danger"
+              >
+                <div *ngIf="confirmPassword.errors?.['required']">
+                  Confirm the password
+                </div>
+              </small>
+              <small
+                class="block text-danger"
+                *ngIf="registerForm.errors?.['passwordMismatch'] && confirmPassword.valid && password.valid"
+              >
+                Password should match
+              </small>
+            </div>
+  
+            <button class="btn btn-dark btn-lg btn-block" type="submit">Continue</button>
+  
+            <hr class="my-4">
+  
+            <a href="/login" class="btn btn-outline-dark btn-lg btn-block" type="button">Go back</a>
+          </form>
+  
+        </div>
+      </div>
+    </div>
+  
+  </app-auth-layout>
+  
