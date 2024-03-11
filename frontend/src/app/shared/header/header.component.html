@@ -1,0 +1,142 @@
+<style>
+    html,
+    body {
+      overflow-x: hidden; 
+    }
+  
+    body {
+      padding-top: 56px;
+    }
+  
+    nav{
+      background: #004d40;
+    }
+  
+    .cart-account{
+      align-items: center;
+    }
+
+/* Center the navigation menu items and adjust font size */
+.navbar-nav {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.navbar-nav .nav-link {
+  padding: 0.5rem 1rem; /* Adjust padding to increase the gap */
+  font-size: 1.1rem; /* Adjust font size as needed */
+}
+
+/* Optional: If you want the cart and account sections to align to the right */
+.cart-account {
+  margin-left: auto;
+}
+
+/* Optional: Increase font size for account links */
+.cart-account .dropdown-menu .dropdown-item {
+  font-size: 1rem; /* Adjust font size as needed */
+}
+
+  
+    @media (max-width: 991.98px) {
+      .offcanvas-collapse {
+        position: fixed;
+        top: 56px; 
+        bottom: 0;
+        left: 100%;
+        width: 100%;
+        padding-right: 1rem;
+        padding-left: 1rem;
+        overflow-y: auto;
+        visibility: hidden;
+        background-color: #343a40;
+        transition: transform .3s ease-in-out, visibility .3s ease-in-out;
+      }
+  
+      .offcanvas-collapse.open {
+        visibility: visible;
+        transform: translateX(-100%);
+      }
+  
+      .offcanvas-collapse.open .cart-account{
+        flex-direction: column;
+        align-items: flex-start;
+        width: auto;
+        justify-content: flex-start;
+      }
+  
+  
+  
+    }
+  
+  </style>
+  
+  <nav class="navbar navbar-expand-lg fixed-top navbar-dark bd-green-500"
+       aria-label="Main navigation">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><img src= "assets/Logo.jpg" alt="Green Feast Fusion Logo" style="height: 40px;"> Green Feast Fusion</a>
+      <button (click)="toggleNavbar()" class="navbar-toggler p-0 border-0" 
+              type="button" id="navbarSideCollapse"
+              aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="navbar-collapse offcanvas-collapse pe-3 " [ngClass]="{'open':isOpen}"
+           id="navbarsExampleDefault">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" [ngClass]="{'active':activePage.toLowerCase() === 'home'}" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [ngClass]="{'active':activePage.toLowerCase() === 'plan'}" href="/plans">Our Plans</a>
+          </li>
+          <li *ngIf="isLoggedIn" class="nav-item">
+            <a class="nav-link" [ngClass]="{'active':activePage.toLowerCase() === 'shop'}" href="/shop">Shop</a>
+          </li>
+  
+          <li class="nav-item">
+            <a class="nav-link" [ngClass]="{'active':activePage.toLowerCase() === 'contact'}" href="/contact" >Contact Us</a>
+          </li>
+  
+        </ul>
+  
+        <div class="d-flex gap-4 text-white cart-account">
+  <!--        name div-->
+          <div *ngIf="name">
+            Welcome, {{name}}
+          </div>
+  
+          <div class="dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Account
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a *ngIf="!isLoggedIn" class="dropdown-item" href="/login" (click)="login()">Login</a>
+              <div *ngIf="isLoggedIn" class="dropdown-item" (click)="logout()">Logout</div>
+  <!--            *ngIf="isLoggedIn" -->
+            </div>
+          </div>
+  
+          <div class="position-relative" id="navbarNav">
+  
+            <span *ngIf="cartCount>=0" class="position-absolute" style="right: 0; top: -5px" >
+              {{cartCount}}
+            </span>
+  
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="/checkout">
+                  <i class="fas fa-shopping-cart"></i> Cart
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  
+  </nav>
+  
+  
+  
