@@ -1,0 +1,18 @@
+.welcome-content {
+    margin-top: 70px;
+    color: green /* Adjust the value as needed to position the content */
+  }
+  
+  /* Optional: If you need to adjust the image size for larger screens */
+  @media (min-width: 992px) {
+    .left-side-image img {
+      height: 100vh; /* 100% of the viewport height */
+      object-fit: cover; /* Cover the full area without stretching the image */
+    }
+  }
+  
+
+
+  
+
+  

@@ -1,0 +1,514 @@
+
+<style>
+    .custom-bg-container {
+      position: relative;
+      background-color: #2d3748; /* bg-gray-800 */
+      padding-bottom: 10rem; /* pb-32 */
+    }
+  
+    .custom-img-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+  
+    .custom-full-cover {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  
+    .custom-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 232, 0, 0.49); /* bg-green */
+      mix-blend-mode: multiply;
+    }
+  
+    .custom-content-container {
+      position: relative;
+      max-width: 1140px; /* Bootstrap's container max-width for some breakpoints or custom */
+      padding: 96px 24px; /* py-24 and px-6 */
+      margin: 0 auto; /* mx-auto */
+    }
+  
+    .custom-title {
+      font-size: 2.25rem; /* text-4xl */
+      font-weight: bold; /* font-bold */
+      color: white; /* text-white */
+      margin-bottom: 24px; /* Tailwind's margin */
+    }
+  
+    .custom-subtitle {
+      color: #e2e8f0; /* text-gray-300 */
+      font-size: 1.25rem; /* text-xl */
+      max-width: 600px; /* Similar to max-w-3xl */
+    }
+  
+    .custom-grid-gap {
+      margin-top: -20px;
+      margin-bottom: -20px;
+    }
+  
+    .custom-grid-gap > [class^='col-'] {
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+  
+    @media (min-width: 992px) {
+      /* Matching Bootstrap's large (lg) breakpoint */
+      .custom-grid-gap {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+  
+      .custom-column-gap {
+        padding-right: 8px;
+        padding-left: 8px;
+      }
+  
+      .custom-grid-gap > [class^='col-'] {
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+    }
+  
+    .custom-section {
+      position: relative;
+      z-index: 10;
+      margin-top: -8rem;
+    }
+  
+    .container {
+      max-width: 1280px;
+    }
+  
+    .custom-card {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      position: relative;
+    }
+  
+    .custom-card-icon {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 8rem; /* Size of the icon container */
+      height: 8rem; /* Size of the icon container */
+      /*background-color: aliceblue; !* bg-indigo-600 in Tailwind *!*/
+      border-radius: 9999px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-lg in Tailwind */
+    }
+  
+    .custom-card-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 9999px;
+    }
+  
+    @media (min-width: 992px) {
+      .g-4 {
+        --bs-gutter-x: .5rem; /* lg:gap-x-2 in Tailwind */
+        --bs-gutter-y: 0; /* lg:gap-y-0 in Tailwind */
+      }
+    }
+  
+  
+    .custom-feature-card {
+      background-color: #ffffff; /* bg-gray-900 */
+      border-radius: 1.5rem; /* sm:rounded-3xl */
+      max-width: 1200px; /* max-w-7xl */
+    }
+  
+    .custom-btn-get-started {
+      background-color: #02330f; /* bg-white */
+      color: #ffffff; /* text-gray-900 */
+      padding: .5rem 1rem; /* px-3.5 py-2.5 */
+      font-weight: 600; /* font-semibold */
+      border-radius: .375rem; /* rounded-md */
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
+    }
+  
+    .custom-btn-get-started:hover {
+      background-color: rgba(2, 51, 15, 0.8); /* hover:bg-gray-100 */
+    }
+  
+    h2 {
+      max-width: 800px; /* max-w-2xl */
+      font-size: 1.75rem; /* text-3xl */
+      font-weight: bold; /* font-bold */
+      margin: auto;
+    }
+  
+    p {
+      max-width: 500px; /* max-w-xl */
+      font-size: 1.125rem; /* text-lg */
+    }
+  
+    .custom-article {
+      max-width: none;
+      min-width: 300px;
+    }
+  
+    .custom-category-badge {
+      background-color: #f3f4f6; /* bg-gray-50 */
+      padding: 0.375rem 0.75rem; /* px-3 py-1.5 */
+      font-weight: 500; /* font-medium */
+      text-decoration: none;
+      color: #4b5563; /* text-gray-600 */
+      border-radius: 9999px; /* rounded-full */
+    }
+  
+    .custom-category-badge:hover {
+      background-color: #e5e7eb; /* hover:bg-gray-100 */
+    }
+  
+    .custom-article-link {
+      position: relative;
+      color: #1f2937; /* text-gray-900 */
+    }
+  
+    .custom-article-link:hover {
+      color: #4b5563; /* text-gray-600 */
+    }
+  
+    .custom-article-text {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  
+    .custom-title {
+      font-weight: bold;
+      font-size: 1.75rem; /* 28px for smaller screens */
+      color: #111827;
+    }
+  
+    .custom-paragraph {
+      font-size: 1rem; /* 16px */
+      color: #4b5563;
+      line-height: 2;
+    }
+  
+    .custom-image {
+      width: 80%;
+      height:80%;
+      border-radius: 1.25rem; /* 20px */
+      object-fit: cover;
+      margin-top: 2.5rem; /* Adjust based on breakpoints */
+    }
+  
+    @media (min-width: 768px) {
+      .custom-title {
+        font-size: 2.25rem; /* 36px */
+      }
+    }
+  
+  
+    /* This styles the scrollbar track */
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1; /* Track color */
+    }
+  
+    /* This styles the actual scrollbar thumb */
+    ::-webkit-scrollbar-thumb {
+      background: #888; /* Thumb color */
+    }
+  
+    /* This styles the scrollbar button (arrows pointing upwards and downwards) */
+    ::-webkit-scrollbar-button {
+      display: none; /* Usually, it's best to hide these for a cleaner look */
+    }
+  
+    /* This sets the width of the scrollbar to a thin size */
+    ::-webkit-scrollbar {
+      width: 4px;
+      height: 4px;
+      border-radius: 10px;
+    }
+  
+  </style>
+  
+  <app-main-layout [activePage]="'home'">
+    <div class="custom-bg-container">
+      <div class="custom-img-overlay">
+        <img
+          src="https://images.unsplash.com/photo-1623428188495-89c064ee061a?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=60&&sat=-100"
+          class="custom-full-cover"
+          alt="">
+        <div class="custom-overlay"></div>
+      </div>
+      <div class="container custom-content-container">
+        <h1 class="custom-title w-50 text-white text-center">Embark on a Culinary
+          Journey with Green Feast Fusion</h1>
+        <p class="custom-subtitle">Dive into a world of exquisite vegetarian
+          flavors from around the globe, right at your doorstep in Ontario.
+          Discover the joy of cooking with our easy-to-follow meal kits, tailored
+          to your taste and dietary preferences. From the vibrant streets of India
+          to your home kitchen in Waterloo, Kitchener, Cambridge, and Guelph —
+          let's make every meal a celebration. Start your feast today!</p>
+      </div>
+    </div>
+  
+    <section class="custom-section" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-12 col-lg-4 d-flex align-items-stretch">
+            <div class="custom-card flex-column bg-white shadow-lg rounded-3">
+              <div class="custom-card-icon">
+                <img
+                  src="https://images.unsplash.com/photo-1588964895597-cfccd6e2dbf9?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  alt="">
+              </div>
+              <div class="card-body d-flex flex-column p-4 pt-5">
+                <h3 class="card-title mt-3">1. Choose Your Adventure</h3>
+                <br>
+                <p class="card-text text-muted">Begin by selecting your preferred
+                  cuisine or let us surprise you with our expertly curated
+                  vegetarian meal kits. Whatever, you crave for, we
+                  have something to satisfy every palate.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-4 d-flex align-items-stretch">
+            <div class="custom-card flex-column bg-white shadow-lg rounded-3">
+              <div class="custom-card-icon">
+                <img
+                  src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  alt="" srcset="">
+              </div>
+              <div class="card-body d-flex flex-column p-4 pt-5">
+                <h3 class="card-title mt-3">2. Customize Your Meal Plan</h3>
+                <br>
+                <p class="card-text text-muted">Adjust your weekly meal plan
+                  according to your dietary preferences, spice level, and meal
+                  type. Opt for a one-time feast or subscribe for regular
+                  deliveries to your door.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-4 d-flex align-items-stretch">
+            <div class="custom-card flex-column bg-white shadow-lg rounded-3">
+              <div class="custom-card-icon">
+                <img
+                  src="https://images.unsplash.com/photo-1556911073-52527ac43761?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  alt="">
+              </div>
+              <div class="card-body d-flex flex-column p-4 pt-5">
+                <h3 class="card-title mt-3">3. Cook, Enjoy, and Discover</h3>
+                <br>
+                <p class="card-text text-muted">Receive your meal kit complete
+                  with fresh, locally-sourced ingredients and an easy-to-follow
+                  recipe card. Each kit is designed to make cooking fun and
+                  accessible, no matter your skill level. </p>
+              </div>
+            </div>
+          </div>
+          <!-- Repeat for Technical Support and Media Inquiries columns -->
+        </div>
+      </div>
+    </section>
+  
+    <div class="bg-white">
+      <div class="container py-5 sm:py-5 lg:px-3">
+        <div class="custom-feature-card mx-auto p-5 text-center shadow-lg">
+          <h2 class="text-green-300">Ready to start your culinary journey?.</h2>
+          <div class="mt-4 d-flex justify-content-center gap-2">
+            <a href="/plans" class="btn custom-btn-get-started">Subscribe Now</a>
+          </div>
+        </div>
+      </div>
+  
+  
+      <div class="bg-white py-5 pt-0">
+        <div class="container">
+          <div class="row">
+            <div class="col text-center">
+              <h2>Our Latest Reviews</h2>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div
+            class="d-flex gap-3 mt-4 pt-4 border-top border-2 overflow-x-scroll">
+  
+            <div class="col-md-6 col-lg-4 mx-auto p-3">
+              <article class="custom-article mb-4">
+                <div class="d-flex align-items-center mb-2 text-xs">
+                  <time datetime="2020-03-16" class="text-muted"> February 5,
+                    2024
+                  </time>
+                </div>
+                <div>
+                  <h3 class="h5 mb-3">
+                    <a href="#" class="text-dark custom-article-link">A World of
+                      Flavor in Every Box!</a>
+                  </h3>
+                  <p class="text-muted custom-article-text">Green Feast Fusion has
+                    completely transformed our dinner times! Each meal kit is like
+                    a mini culinary adventure. I was especially impressed by the
+                    Indian cuisine options — so authentic and flavorful. The
+                    ingredients are always fresh, and the recipes are easy to
+                    follow. Can't wait to see what's next!</p>
+                </div>
+                <div class="d-flex align-items-center mt-3">
+                  <img
+                    src="https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                    alt="" class="rounded-circle"
+                    style="width: 40px; height: 40px;">
+                  <div class="ms-2">
+                    <p class="m-0 fw-bold">Emily Robertson</p>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-md-6 col-lg-4 mx-auto p-3">
+              <article class="custom-article mb-4">
+                <div class="d-flex align-items-center mb-2 text-xs">
+                  <time datetime="2020-03-16" class="text-muted">January 22,
+                    2024
+                  </time>
+                </div>
+                <div>
+                  <h3 class="h5 mb-3">
+                    <a href="#" class="text-dark custom-article-link">Perfect for
+                      Busy Weeknights</a>
+                  </h3>
+                  <p class="text-muted custom-article-text">As a busy
+                    professional, finding time to cook healthy meals can be a
+                    challenge. Green Feast Fusion has been a game-changer for me.
+                    The meal plans are not only convenient but delicious and
+                    nutritious. I appreciate the focus on vegetarian cuisine,
+                    offering a great variety to choose from.</p>
+                </div>
+                <div class="d-flex align-items-center mt-3">
+                  <img
+                    src="https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                    alt="" class="rounded-circle"
+                    style="width: 40px; height: 40px;">
+                  <div class="ms-2">
+                    <p class="m-0 fw-bold">Darren Lim</p>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-md-6 col-lg-4 mx-auto p-3">
+              <article class="custom-article mb-4">
+                <div class="d-flex align-items-center mb-2 text-xs">
+                  <time datetime="2020-03-16" class="text-muted">February 1,
+                    2024
+                  </time>
+                  <!--                <a href="#" class="custom-category-badge ms-2">Marketing</a>-->
+                </div>
+                <div>
+                  <h3 class="h5 mb-3">
+                    <a href="#" class="text-dark custom-article-link">Vegetarian
+                      Cooking Made Easy</a>
+                  </h3>
+                  <p class="text-muted custom-article-text">I've always wanted to
+                    explore vegetarian cooking more, but didn't know where to
+                    start. Green Feast Fusion makes it so easy and fun! The
+                    step-by-step recipe cards are foolproof. I've learned to cook
+                    dishes I never thought I could, all thanks to Green Feast
+                    Fusion.</p>
+                </div>
+                <div class="d-flex align-items-center mt-3">
+                  <img
+                    src="https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                    alt="" class="rounded-circle"
+                    style="width: 40px; height: 40px;">
+                  <div class="ms-2">
+                    <p class="m-0 fw-bold">Anita Singh</p>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-md-6 col-lg-4 mx-auto p-3">
+              <article class="custom-article mb-4">
+                <div class="d-flex align-items-center mb-2 text-xs">
+                  <time datetime="2020-03-16" class="text-muted">Mar 16, 2020
+                  </time>
+                  <!--                <a href="#" class="custom-category-badge ms-2">Marketing</a>-->
+                </div>
+                <div>
+                  <h3 class="h5 mb-3">
+                    <a href="#" class="text-dark custom-article-link">Fresh
+                      Ingredients, Incredible Taste</a>
+                  </h3>
+                  <p class="text-muted custom-article-text">The quality of
+                    ingredients provided by Green Feast Fusion is outstanding.
+                    Everything is so fresh, and it really makes a difference in
+                    the taste of the meals. I love the variety of meal options and
+                    how each box feels personalized to my preferences.</p>
+                </div>
+                <div class="d-flex align-items-center mt-3">
+                  <img
+                    src="https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                    alt="" class="rounded-circle"
+                    style="width: 40px; height: 40px;">
+                  <div class="ms-2">
+                    <p class="m-0 fw-bold">Michael Chen</p>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <!-- Repeat for other posts... -->
+          </div>
+        </div>
+      </div>
+  
+  
+    </div>
+  
+  
+    <div class="relative overflow-hidden pb-4">
+      <div class="container px-4 py-32 mx-auto">
+        <div class="row gx-5 gy-5">
+          <div class="col-12 col-lg-6">
+            <h1 class="custom-title">Discover the Art of Vegetarian Delight.
+              Unleash Your Kitchen's Global Flavors with Green Feast Fusion!</h1>
+  
+            <p class="custom-paragraph">At Green Feast Fusion, our passion is to
+              ignite your culinary creativity with the unparalleled flavors of
+              vegetarian cuisine from across the globe. Nestled in the vibrant
+              heart of Ontario, we deliver more than just meal kits; we deliver
+              experiences that transform cooking into an adventure. From the
+              aromatic spices of India to the hearty vegetables of the
+              Mediterranean, our carefully curated boxes are a gateway to diverse
+              cultures, right in your kitchen in Waterloo, Kitchener, Cambridge,
+              and Guelph. Each meal kit is a testament to our commitment to
+              sustainability, freshness, and the joy of plant-based eating.
+              Designed with both the seasoned chef and the budding cook in mind,
+              Green Feast Fusion is your partner in crafting delectable,
+              eco-friendly meals that celebrate the rich tapestry of global
+              vegetarian cuisine. Embark on a culinary journey with us, where
+              every dish is an opportunity to explore, enjoy, and embrace the art
+              of vegetarian cooking.</p>
+  
+            <div class="text-center mt-4">
+              <a href="/plans" class="btn btn-lg" role="button" style="background-color: #004d40; color: #f5f5f5;">Get Our Plans</a>
+            </div>
+  
+          </div>
+          <div class="col-12 col-lg-6">
+            <img
+              src="assets/banner1.jpg"
+              alt="" class="custom-image">
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </app-main-layout>
+  
+  
+  

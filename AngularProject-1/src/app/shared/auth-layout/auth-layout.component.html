@@ -1,0 +1,20 @@
+<app-main-layout>
+  <div class="container-fluid mt-4">
+    <div class="row">
+      <!-- Left Side Image -->
+      <div class="col-md-6 left-side-image d-none d-md-block">
+        <img src="assets/Login.webp" alt="Delicious Meals" class="img-fluid" style="height: 115vh; object-fit: cover;">
+      </div>
+
+      <!-- Right Side Content -->
+      <div class="col-md-6 d-flex flex-column justify-content-center">
+        <div class="welcome-content text-center mb-4">
+          <h1>Welcome to Green Feast Fusion!</h1>
+          <p>Less cooking, more living!</p>
+        </div>
+        <!-- Login Box (ng-content) -->
+        <ng-content select="[right-content]"></ng-content>
+      </div>
+    </div>
+  </div>
+</app-main-layout>
